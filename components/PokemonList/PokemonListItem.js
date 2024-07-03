@@ -61,17 +61,12 @@ function PokemonListItem({ item, onPress }) {
 
 // define your styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: 200,
-    margin: 12,
-  },
   outerContainer: {
     flex: 1,
-    margin: 16,
-    height: 200,
+    width:'100%',
+    aspectRatio: 4/5,
     borderRadius: 8,
-    backgroundColor: "45a4b1",
+    backgroundColor: "#45a4b1",
     elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },

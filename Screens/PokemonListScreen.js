@@ -60,7 +60,8 @@ function PokemonListScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
-        style={styles.list}
+        contentContainerStyle={{ gap: 12, padding: 12 }}
+        columnWrapperStyle={{ gap: 12 }}
         data={pokemons}
         renderItem={pokemonListItemRenderer}
         numColumns={"2"}
