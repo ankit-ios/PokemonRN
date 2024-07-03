@@ -6,9 +6,9 @@ import {
   StyleSheet,
 } from "react-native";
 
-import PokemonApi  from "../utils/api/PokemonApi.js";
-import  apiRequest  from "../utils/api/apiRequest.js";
-import { useQuery } from "@tanstack/react-query";
+import PokemonApi from "../utils/api/PokemonApi.js";
+import apiRequest from "../utils/api/apiRequest.js";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import PokemonListItem from "../components/PokemonList/PokemonListItem.js";
 
 function PokemonListScreen({ navigation }) {
@@ -18,9 +18,19 @@ function PokemonListScreen({ navigation }) {
   //   queryFn: fetchPokemons,
   // });
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["pokemonList", { offset: 0, limit: 20 }],
-    queryFn: ( { queryKey}) => apiRequest(PokemonApi.LIST, queryKey[1])
+  // const fetchPokemons = async ( pageParam: number ) => {
+  //   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pageParam}&limit=20`)
+  //   return res.json()
+  // }
+
+  const { data, isLoading, error, fetchNextPage } = useInfiniteQuery({
+    queryKey: ["pokemonList"],
+    initialPageParam: { offset: 0, limit: 20 },
+    queryFn: ({ pageParam }) => apiRequest(PokemonApi.LIST, pageParam),
+    getNextPageParam: (lastPage, pages) => {
+      const nextOffset = pages.length * 20;
+      return { offset: nextOffset, limit: 20 };
+    },
   });
 
   if (isLoading) {
@@ -42,17 +52,19 @@ function PokemonListScreen({ navigation }) {
   }
 
   function pokemonListItemHandler({ pokemonId }) {
-    console.log(pokemonId);
     navigation.navigate("PokemonDetailScreen", { pokemonId });
   }
+
+  const pokemons = data.pages.flatMap((item) => item.results);
 
   return (
     <View style={styles.container}>
       <FlatList
         style={styles.list}
-        data={data.results}
+        data={pokemons}
         renderItem={pokemonListItemRenderer}
         numColumns={"2"}
+        onEndReached={fetchNextPage}
       />
     </View>
   );
