@@ -40,7 +40,11 @@ function PokemonListItem({ item, onPress }) {
       >
         <View style={styles.innerContainer}>
           {loading && (
-            <ActivityIndicator style={styles.activityIndicator} size="large" color="#fff" />
+            <ActivityIndicator
+              style={styles.activityIndicator}
+              size="large"
+              color="#fff"
+            />
           )}
           <Image
             source={{ uri: imageUrl }}
