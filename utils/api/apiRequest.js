@@ -3,7 +3,7 @@ import { appendQueryParams } from "../helper";
 
 const BASE_URL = "https://pokeapi.co/api/v2";
 
-const apiRequest = async (type, params = {}) => {
+const ApiRequest = async (type, params = {}) => {
   const endpoint = PokemonApi.endpoint(type, params);
   const requestParams = PokemonApi.requestParameters(type, params);
 
@@ -32,4 +32,4 @@ const apiRequest = async (type, params = {}) => {
   }
 };
 
-export default apiRequest;
+export default ApiRequest;

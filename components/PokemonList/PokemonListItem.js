@@ -13,16 +13,12 @@ import {
   getPokemonThumbnailUrl,
 } from "../../utils/helper";
 import { useState } from "react";
+import Pokemon from "../../models/Pokemon";
 
 // create a component
-function PokemonListItem({ item, onPress }) {
-  const pokemonId = getPokemonIdFromUrl(item.url);
-  const imageUrl = getPokemonThumbnailUrl(pokemonId);
+function PokemonListItem({ pokemon, onPress }) {
+  const { id, name, thumbnail } = pokemon;
   const [loading, setLoading] = useState(true);
-
-  function onPressHandler() {
-    onPress({ pokemonId });
-  }
 
   const handleImageLoad = () => {
     setLoading(false);
@@ -36,7 +32,7 @@ function PokemonListItem({ item, onPress }) {
           styles.card,
           pressed ? styles.cardPressed : null,
         ]}
-        onPress={onPressHandler}
+        onPress={() => onPress({ id })}
       >
         <View style={styles.innerContainer}>
           {loading && (
@@ -47,12 +43,12 @@ function PokemonListItem({ item, onPress }) {
             />
           )}
           <Image
-            source={{ uri: imageUrl }}
+            source={{ uri: thumbnail }}
             style={styles.image}
             resizeMode="cover"
             onLoad={handleImageLoad}
           />
-          <Text style={styles.title}>{item.name.toUpperCase()}</Text>
+          <Text style={styles.title}>{name.toUpperCase()}</Text>
         </View>
       </Pressable>
     </View>
@@ -63,8 +59,8 @@ function PokemonListItem({ item, onPress }) {
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    width:'100%',
-    aspectRatio: 4/5,
+    width: "100%",
+    aspectRatio: 4 / 5,
     borderRadius: 8,
     backgroundColor: "#45a4b1",
     elevation: 4,

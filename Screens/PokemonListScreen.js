@@ -7,7 +7,8 @@ import {
 } from "react-native";
 
 import PokemonApi from "../utils/api/PokemonApi.js";
-import apiRequest from "../utils/api/apiRequest.js";
+import ApiRequest from "../utils/api/ApiRequest.js";
+import Pokemon from "../models/Pokemon.js";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import PokemonListItem from "../components/PokemonList/PokemonListItem.js";
 
@@ -26,7 +27,7 @@ function PokemonListScreen({ navigation }) {
   const { data, isLoading, error, fetchNextPage } = useInfiniteQuery({
     queryKey: ["pokemonList"],
     initialPageParam: { offset: 0, limit: 20 },
-    queryFn: ({ pageParam }) => apiRequest(PokemonApi.LIST, pageParam),
+    queryFn: ({ pageParam }) => ApiRequest(PokemonApi.LIST, pageParam),
     getNextPageParam: (lastPage, pages) => {
       const nextOffset = pages.length * 20;
       return { offset: nextOffset, limit: 20 };
@@ -47,15 +48,19 @@ function PokemonListScreen({ navigation }) {
     return <Text>{error.message}</Text>;
   }
 
-  function pokemonListItemRenderer({ item }) {
-    return <PokemonListItem item={item} onPress={pokemonListItemHandler} />;
+  function pokemonListItemRenderer({ item: pokemon }) {
+    return (
+      <PokemonListItem pokemon={pokemon} onPress={pokemonListItemHandler} />
+    );
   }
 
   function pokemonListItemHandler({ pokemonId }) {
     navigation.navigate("PokemonDetailScreen", { pokemonId });
   }
 
-  const pokemons = data.pages.flatMap((item) => item.results);
+  const pokemons = data.pages
+    .flatMap((item) => item.results)
+    .map((item) => new Pokemon(item));
 
   return (
     <View style={styles.container}>
