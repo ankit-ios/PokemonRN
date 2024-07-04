@@ -7,11 +7,14 @@ const ApiRequest = async (type, params = {}) => {
   const endpoint = PokemonApi.endpoint(type, params);
   const requestParams = PokemonApi.requestParameters(type, params);
 
+  console.log("endpoint => " + endpoint);
   let url = `${BASE_URL}${endpoint}`;
   if (requestParams !== null) {
     url = appendQueryParams(url, requestParams);
   }
 
+
+  console.log("url => " + url);
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -20,6 +23,7 @@ const ApiRequest = async (type, params = {}) => {
       },
     });
 
+    console.log("response => "+response);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

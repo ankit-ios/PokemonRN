@@ -13,17 +13,6 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import PokemonListItem from "../components/PokemonList/PokemonListItem.js";
 
 function PokemonListScreen({ navigation }) {
-  ///tanstack -> useQuery
-  // const { data, isLoading, error } = useQuery({
-  //   queryKey: ["pokemon"],
-  //   queryFn: fetchPokemons,
-  // });
-
-  // const fetchPokemons = async ( pageParam: number ) => {
-  //   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pageParam}&limit=20`)
-  //   return res.json()
-  // }
-
   const { data, isLoading, error, fetchNextPage } = useInfiniteQuery({
     queryKey: ["pokemonList"],
     initialPageParam: { offset: 0, limit: 20 },
@@ -54,8 +43,8 @@ function PokemonListScreen({ navigation }) {
     );
   }
 
-  function pokemonListItemHandler({ pokemonId }) {
-    navigation.navigate("PokemonDetailScreen", { pokemonId });
+  function pokemonListItemHandler({ pokemon }) {
+    navigation.navigate("PokemonDetailScreen", { pokemon });
   }
 
   const pokemons = data.pages

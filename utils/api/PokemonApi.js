@@ -1,10 +1,3 @@
-// const baseUrl = `https://pokeapi.co/api/v2`;
-// export const fetchPokemons = async () => {
-//     const pokemons = await fetch(baseUrl + `/pokemon`);
-//     const pokemonsData = await pokemons.json();
-//     return pokemonsData;
-// }
-
 const PokemonApi = {
     LIST: "list",
     DETAIL: "detail",

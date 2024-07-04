@@ -1,28 +1,10 @@
 //import liraries
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  Image,
-  Platform,
-  ActivityIndicator,
-} from "react-native";
-import {
-  getPokemonIdFromUrl,
-  getPokemonThumbnailUrl,
-} from "../../utils/helper";
-import { useState } from "react";
-import Pokemon from "../../models/Pokemon";
+import { View, Text, StyleSheet, Pressable, Platform } from "react-native";
+import ImageView from "../ImageView";
 
 // create a component
 function PokemonListItem({ pokemon, onPress }) {
   const { id, name, thumbnail } = pokemon;
-  const [loading, setLoading] = useState(true);
-
-  const handleImageLoad = () => {
-    setLoading(false);
-  };
 
   return (
     <View style={styles.outerContainer}>
@@ -32,23 +14,11 @@ function PokemonListItem({ pokemon, onPress }) {
           styles.card,
           pressed ? styles.cardPressed : null,
         ]}
-        onPress={() => onPress({ id })}
+        onPress={() => onPress({ pokemon })}
       >
         <View style={styles.innerContainer}>
-          {loading && (
-            <ActivityIndicator
-              style={styles.activityIndicator}
-              size="large"
-              color="#fff"
-            />
-          )}
-          <Image
-            source={{ uri: thumbnail }}
-            style={styles.image}
-            resizeMode="cover"
-            onLoad={handleImageLoad}
-          />
-          <Text style={styles.title}>{name.toUpperCase()}</Text>
+          <ImageView imageUrl={thumbnail} />
+          <Text style={styles.title}>{name}</Text>
         </View>
       </Pressable>
     </View>
@@ -84,25 +54,11 @@ const styles = StyleSheet.create({
   cardPressed: {
     opacity: 0.5,
   },
-  image: {
-    height: 140,
-    width: 120,
-    padding: 8,
-  },
   title: {
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 16,
-    padding: 16,
-  },
-  activityIndicator: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 8,
   },
 });
 
