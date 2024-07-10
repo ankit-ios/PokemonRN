@@ -10,9 +10,9 @@ import PokemonApi from "../utils/api/PokemonApi.js";
 import ApiRequest from "../utils/api/ApiRequest.js";
 import Pokemon from "../models/Pokemon.js";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import PokemonListItem from "../components/PokemonList/PokemonListItem.js";
+import PokemonListItem from "../components/PokemonList/PokemonListItem";
 
-function PokemonListScreen({ navigation }) {
+function PokemonListScreen({ navigation }: { navigation: any }) {
   const { data, isLoading, error, fetchNextPage } = useInfiniteQuery({
     queryKey: ["pokemonList"],
     initialPageParam: { offset: 0, limit: 20 },
@@ -58,8 +58,8 @@ function PokemonListScreen({ navigation }) {
         columnWrapperStyle={{ gap: 12 }}
         data={pokemons}
         renderItem={pokemonListItemRenderer}
-        numColumns={"2"}
-        onEndReached={fetchNextPage}
+        numColumns={2}
+        onEndReached={() => fetchNextPage()}
       />
     </View>
   );

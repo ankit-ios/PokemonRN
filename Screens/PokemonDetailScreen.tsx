@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react"; // Update to useState for type safety
 import { View, StyleSheet } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 
@@ -7,9 +7,20 @@ import PokemonSpecies from "../components/PokemonDetail/PokemonSpecies";
 import PokemonApi from "../utils/api/PokemonApi";
 import ApiRequest from "../utils/api/ApiRequest";
 
+interface PokemonProps {
+  name: string;
+  id: number;
+}
+
 // create a component
-function PokemonDetailScreen({ route, navigation }) {
-  const pokemon = route.params.pokemon;
+function PokemonDetailScreen({
+  route,
+  navigation,
+}: {
+  route: any;
+  navigation: any;
+}) {
+  const pokemon: PokemonProps = route.params.pokemon; // Specify type for pokemon
 
   useEffect(() => {
     navigation.setOptions({
@@ -17,7 +28,11 @@ function PokemonDetailScreen({ route, navigation }) {
     });
   }, [navigation, pokemon.name]);
 
-  const { data, isLoading, error } = useQuery({
+  const {
+    data: pokemonDetailData,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["pokemonDetail", { pokemonId: pokemon.id }],
     queryFn: ({ queryKey }) => ApiRequest(PokemonApi.DETAIL, queryKey[1]),
   });
@@ -27,7 +42,7 @@ function PokemonDetailScreen({ route, navigation }) {
       <ActivityIndicatorView />
     </View>
   ) : error ? (
-    <View>error.message</View>
+    <View>{error.message}</View>
   ) : (
     <View style={styles.container}>
       <View style={styles.header}>

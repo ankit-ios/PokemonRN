@@ -1,10 +1,16 @@
 import { ActivityIndicator, StyleSheet } from "react-native";
 
+interface ActivityIndicatorProps {
+  size?: number | "small" | "large" | undefined;
+  color?: string;
+  style?: any;
+}
+
 const ActivityIndicatorView = ({
   size = "large",
   color = "#fff",
-  style,
-}) => {
+  style = [],
+}: ActivityIndicatorProps) => {
   return (
     <ActivityIndicator
       style={[styles.activityIndicator, style]}

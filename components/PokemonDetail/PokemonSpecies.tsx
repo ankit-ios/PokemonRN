@@ -6,9 +6,14 @@ import PokemonApi from "../../utils/api/PokemonApi";
 import ApiRequest from "../../utils/api/ApiRequest";
 import ActivityIndicatorView from "../ActivityIndicatorView";
 import ImageView from "../ImageView";
+import Pokemon from "../../models/Pokemon";
+
+interface PokemonSpeciesProps {
+  pokemon: Pokemon;
+}
 
 // create a component
-const PokemonSpecies = ({ pokemon }) => {
+const PokemonSpecies = ({ pokemon }: PokemonSpeciesProps) => {
   const {
     data: species,
     isLoading: isSpeciesLoading,
@@ -54,9 +59,7 @@ const PokemonSpecies = ({ pokemon }) => {
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <ImageView imageUrl={pokemon.thumbnail} />
-        <Text styles={{ backgroundColor: "#c82222" }}>
-          {englishFlavorTexts}
-        </Text>
+        <Text style={styles.text}>{englishFlavorTexts}</Text>
       </View>
     </View>
   );
@@ -76,6 +79,9 @@ const styles = StyleSheet.create({
     marginTop: 40,
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  text: {
+    backgroundColor: "#c82222",
   },
 });
 

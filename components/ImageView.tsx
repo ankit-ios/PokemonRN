@@ -2,8 +2,12 @@ import { View, Image, StyleSheet } from "react-native";
 import { useState } from "react";
 import ActivityIndicatorView from "./ActivityIndicatorView";
 
+interface ImageViewProps {
+  imageUrl?: string;
+  imageStyle?: any; 
+}
 // create a component
-const ImageView = ({ imageUrl, imageStyle }) => {
+const ImageView = ({ imageUrl, imageStyle }: ImageViewProps) => {
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {

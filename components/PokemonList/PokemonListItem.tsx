@@ -1,9 +1,15 @@
 //import liraries
 import { View, Text, StyleSheet, Pressable, Platform } from "react-native";
 import ImageView from "../ImageView";
+import Pokemon from "../../models/Pokemon";
+
+interface PokemonListItemProps {
+  pokemon: Pokemon;
+  onPress: any;
+}
 
 // create a component
-function PokemonListItem({ pokemon, onPress }) {
+function PokemonListItem({ pokemon, onPress }: PokemonListItemProps) {
   const { id, name, thumbnail } = pokemon;
 
   return (
