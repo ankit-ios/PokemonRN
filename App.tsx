@@ -5,8 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useReactQueryDevTools } from "@dev-plugins/react-query";
 
-import PokemonListScreen from "./Screens/PokemonListScreen";
-import PokemonDetailScreen from "./Screens/PokemonDetailScreen";
+import PokemonListScreen from "./src/components/pages/PokemonListScreen";
+import PokemonDetailScreen from "./src/components/pages/PokemonDetailScreen";
 
 const queryClient = new QueryClient();
 const Stack = createNativeStackNavigator();

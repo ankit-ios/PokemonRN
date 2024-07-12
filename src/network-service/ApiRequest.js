@@ -1,5 +1,5 @@
 import PokemonApi from "./PokemonApi";
-import { appendQueryParams } from "../helper";
+import { appendQueryParams } from "../utils/helper";
 
 const BASE_URL = "https://pokeapi.co/api/v2";
 

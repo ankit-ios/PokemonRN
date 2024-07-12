@@ -6,11 +6,11 @@ import {
   StyleSheet,
 } from "react-native";
 
-import PokemonApi from "../utils/api/PokemonApi.js";
-import ApiRequest from "../utils/api/ApiRequest.js";
-import Pokemon from "../models/Pokemon.js";
+import PokemonApi from "../../network-service/PokemonApi.js";
+import ApiRequest from "../../network-service/ApiRequest.js";
+import Pokemon from "../../models/Pokemon";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import PokemonListItem from "../components/PokemonList/PokemonListItem";
+import PokemonListItem from "../organisms/PokemonListItem";
 
 function PokemonListScreen({ navigation }: { navigation: any }) {
   const { data, isLoading, error, fetchNextPage } = useInfiniteQuery({

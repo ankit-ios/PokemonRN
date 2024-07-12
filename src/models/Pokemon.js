@@ -1,4 +1,4 @@
-import { getPokemonIdFromUrl, getPokemonThumbnailUrl } from "../utils/helper";
+import { getPokemonIdFromUrl, getPokemonThumbnailUrl } from "../utils/helper"
 
 class Pokemon {
   constructor(item) {

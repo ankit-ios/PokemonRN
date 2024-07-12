@@ -2,10 +2,10 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 
-import PokemonApi from "../../utils/api/PokemonApi";
-import ApiRequest from "../../utils/api/ApiRequest";
-import ActivityIndicatorView from "../ActivityIndicatorView";
-import ImageView from "../ImageView";
+import PokemonApi from "../../network-service/PokemonApi";
+import ApiRequest from "../../network-service/ApiRequest";
+import ActivityIndicatorView from "../atoms/ActivityIndicatorView";
+import ImageView from "../atoms/ImageView";
 import Pokemon from "../../models/Pokemon";
 
 interface PokemonSpeciesProps {

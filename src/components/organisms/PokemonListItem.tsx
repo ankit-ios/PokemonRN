@@ -1,6 +1,6 @@
 //import liraries
 import { View, Text, StyleSheet, Pressable, Platform } from "react-native";
-import ImageView from "../ImageView";
+import ImageView from "../atoms/ImageView";
 import Pokemon from "../../models/Pokemon";
 
 interface PokemonListItemProps {

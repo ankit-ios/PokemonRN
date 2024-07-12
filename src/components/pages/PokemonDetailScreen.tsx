@@ -2,14 +2,15 @@ import { useEffect, useState } from "react"; // Update to useState for type safe
 import { View, StyleSheet } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 
-import ActivityIndicatorView from "../components/ActivityIndicatorView";
-import PokemonSpecies from "../components/PokemonDetail/PokemonSpecies";
-import PokemonApi from "../utils/api/PokemonApi";
-import ApiRequest from "../utils/api/ApiRequest";
+import ActivityIndicatorView from "../atoms/ActivityIndicatorView";
+import PokemonSpecies from "../organisms/PokemonSpecies";
+import PokemonApi from "../../network-service/PokemonApi";
+import ApiRequest from "../../network-service/ApiRequest";
 
 interface PokemonProps {
-  name: string;
   id: number;
+  name: string;
+  thumbnail: string
 }
 
 // create a component
