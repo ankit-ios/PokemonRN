@@ -1,4 +1,4 @@
-// utils/helper.js
+// helpers/utils.js
 
 export const getPokemonIdFromUrl = (url) => {
   const parts = url.split("/");

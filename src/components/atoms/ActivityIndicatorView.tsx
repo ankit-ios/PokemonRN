@@ -1,3 +1,4 @@
+import React from "react";
 import { ActivityIndicator, StyleSheet } from "react-native";
 
 interface ActivityIndicatorProps {
@@ -13,6 +14,7 @@ const ActivityIndicatorView = ({
 }: ActivityIndicatorProps) => {
   return (
     <ActivityIndicator
+      testID="activity-indicator"
       style={[styles.activityIndicator, style]}
       size={size}
       color={color}
