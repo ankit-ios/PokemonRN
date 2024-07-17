@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActivityIndicatorView renders correctly 1`] = `
+<ActivityIndicator
+  color="#fff"
+  size="large"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      [],
+    ]
+  }
+  testID="activity-indicator"
+/>
+`;

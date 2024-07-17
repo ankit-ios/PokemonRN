@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import TestRenderer from 'react-test-renderer'
 import ActivityIndicatorView from './ActivityIndicatorView';
 
 describe('ActivityIndicatorView', () => {
@@ -34,5 +35,10 @@ describe('ActivityIndicatorView', () => {
       alignItems: "center",
       justifyContent: "center",
     });
+  });
+
+  it('renders correctly', () => {
+    const tree = TestRenderer.create(<ActivityIndicatorView />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
