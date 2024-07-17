@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import { View, Image, StyleSheet } from "react-native";
-import { useState } from "react";
 import ActivityIndicatorView from "./ActivityIndicatorView";
 
 interface ImageViewProps {
@@ -16,8 +16,9 @@ const ImageView = ({ imageUrl, imageStyle }: ImageViewProps) => {
 
   return (
     <View style={styles.container}>
-      {loading && <ActivityIndicatorView />}
+      {loading && <ActivityIndicatorView testID="activity-indicator" />}
       <Image
+        testID="image"
         source={{ uri: imageUrl }}
         style={[styles.image, imageStyle]}
         resizeMode="cover"

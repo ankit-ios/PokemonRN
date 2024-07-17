@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for ApiRequest.js</title>
+    <title>Code coverage report for PokemonRN/App.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> ApiRequest.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">PokemonRN</a> App.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -102,19 +102,14 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,13 +122,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -141,45 +132,60 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import PokemonApi from "./PokemonApi";
-import { appendQueryParams } from "../helpers/utils";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { StatusBar } from "expo-status-bar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useReactQueryDevTools } from "@dev-plugins/react-query";
 &nbsp;
-const BASE_URL = <span class="cstat-no" title="statement not covered" >"https://pokeapi.co/api/v2";</span>
+import PokemonListScreen from "./src/components/pages/PokemonListScreen";
+import PokemonDetailScreen from "./src/components/pages/PokemonDetailScreen";
 &nbsp;
-const ApiRequest = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (type, params = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {</span>
-  const endpoint = <span class="cstat-no" title="statement not covered" >PokemonApi.endpoint(type, params);</span>
-  const requestParams = <span class="cstat-no" title="statement not covered" >PokemonApi.requestParameters(type, params);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  console.log("endpoint =&gt; " + endpoint);</span>
-  let url = <span class="cstat-no" title="statement not covered" >`${BASE_URL}${endpoint}`;</span>
-<span class="cstat-no" title="statement not covered" >  if (requestParams !== null) {</span>
-<span class="cstat-no" title="statement not covered" >    url = appendQueryParams(url, requestParams);</span>
-  }
-&nbsp;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  console.log("url =&gt; " + url);</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const response = <span class="cstat-no" title="statement not covered" >await fetch(url, {</span>
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log("response =&gt; "+response);</span>
-<span class="cstat-no" title="statement not covered" >    if (!response.ok) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("Network response was not ok");</span>
-    }
-&nbsp;
-    const data = <span class="cstat-no" title="statement not covered" >await response.json();</span>
-<span class="cstat-no" title="statement not covered" >    return data;</span>
-  } catch (error) {
-<span class="cstat-no" title="statement not covered" >    console.error("API request failed:", error);</span>
-<span class="cstat-no" title="statement not covered" >    throw error;</span>
-  }
+const queryClient = <span class="cstat-no" title="statement not covered" >new QueryClient();</span>
+const Stack = <span class="cstat-no" title="statement not covered" >createNativeStackNavigator();</span>
+const navigationOptions: any = <span class="cstat-no" title="statement not covered" >{</span>
+  headerStyle: {
+    backgroundColor: "#02292edb",
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
 };
 &nbsp;
-export default ApiRequest;
+export default function <span class="fstat-no" title="function not covered" >App(</span>) {
+<span class="cstat-no" title="statement not covered" >  useReactQueryDevTools(queryClient);</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;&gt;
+      &lt;StatusBar style="light" /&gt;
+      &lt;QueryClientProvider client={queryClient}&gt;
+        &lt;NavigationContainer&gt;
+          &lt;Stack.Navigator screenOptions={navigationOptions}&gt;
+            &lt;Stack.Screen name="All Pokemons" component={PokemonListScreen} /&gt;
+            &lt;Stack.Screen
+              name="PokemonDetailScreen"
+              component={PokemonDetailScreen}
+              options={{ headerBackTitleVisible: false }}
+            /&gt;
+          &lt;/Stack.Navigator&gt;
+        &lt;/NavigationContainer&gt;
+      &lt;/QueryClientProvider&gt;
+    &lt;/&gt;
+  );
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -187,16 +193,16 @@ export default ApiRequest;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-17T06:56:08.083Z
+                at 2024-07-17T06:56:54.598Z
             </div>
-        <script src="prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
