@@ -21,6 +21,7 @@ function PokemonListItem({ pokemon, onPress }: PokemonListItemProps) {
           pressed ? styles.cardPressed : null,
         ]}
         onPress={() => onPress({ pokemon })}
+        testID="pressable-element"
       >
         <View style={styles.innerContainer}>
           <ImageView imageUrl={thumbnail} />

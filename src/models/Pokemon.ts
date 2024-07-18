@@ -1,6 +1,7 @@
 import { getPokemonIdFromUrl, getPokemonThumbnailUrl } from "../helpers/utils";
 
 interface PokemonProps {
+  id: number;
   url: string;
   name: string;
 }

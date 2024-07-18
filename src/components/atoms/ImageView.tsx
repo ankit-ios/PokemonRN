@@ -16,7 +16,7 @@ const ImageView = ({ imageUrl, imageStyle }: ImageViewProps) => {
 
   return (
     <View style={styles.container}>
-      {loading && <ActivityIndicatorView testID="activity-indicator" />}
+      {loading && <ActivityIndicatorView />}
       <Image
         testID="image"
         source={{ uri: imageUrl }}

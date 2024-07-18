@@ -24,7 +24,7 @@ const PokemonSpecies = ({ pokemon }: PokemonSpeciesProps) => {
   });
   if (isSpeciesLoading) {
     return (
-      <View>
+      <View testID="loading-indicator">
         <ActivityIndicatorView />
       </View>
     );
