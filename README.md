@@ -11,11 +11,13 @@ PokemonRN serves as a comprehensive Pokemon dictionary, capturing data pertainin
 
 PokemonRN app represents a straightforward yet potent tool for delving into information about diverse Pokemon. It has been meticulously crafted using SwiftUI and adheres to the MVVM (Model-View-ViewModel) architecture pattern, ensuring a distinct separation of concerns and facilitating ease of maintenance.
 
-
-## App Screens
-
-
 ## Technologies Used
+
+- React Native: Cross-platform mobile app development with native performance.
+- TypeScript: JavaScript with strong typing for better code reliability.
+- Tanstack react-query: Powerful data-fetching and state management for React.
+- Unit testing with Jest: Test individual components and functions to ensure quality.
+- Snapshot testing with TestRenderer: Capture UI snapshots to detect unexpected changes.
 
 
 ## App Screenshots
@@ -23,7 +25,7 @@ PokemonRN app represents a straightforward yet potent tool for delving into info
 <p align="left"><strong>List & Detail Screen</strong></p>
 
 <p align="left">
-  <img src="PokemonRN/Screenshots/Listscreen.png" alt="Splash Screen" width="50%">
-  <img src="PokemonRN/Screenshots/DetailScreen.png" alt="App Logo" width="50%">
+  <img src="Screenshots/Listscreen.png" alt="Splash Screen" width="30%">
+  <img src="Screenshots/DetailScreen.png" alt="App Logo" width="30%">
 </p>
 
