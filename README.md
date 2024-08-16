@@ -13,12 +13,12 @@ PokemonRN app represents a straightforward yet potent tool for delving into info
 
 ## Technologies Used
 
-- React Native: Cross-platform mobile app development with native performance.
-- TypeScript: JavaScript with strong typing for better code reliability.
-- Tanstack react-query: Powerful data-fetching and state management for React.
-- Atomic Design Pattern: Modularize code into reusable components for better structure and maintainability.
-- Unit testing with Jest: Test individual components and functions to ensure quality.
-- Snapshot testing with TestRenderer: Capture UI snapshots to detect unexpected changes.
+- **React Native:** Cross-platform mobile app development with native performance.
+- **TypeScript:** JavaScript with strong typing for better code reliability.
+- **Tanstack react-query:** Powerful data-fetching and state management for React.
+- **Atomic Design Pattern:** Modularize code into reusable components for better structure and maintainability.
+- **Unit testing with Jest:** Test individual components and functions to ensure quality.
+- **Snapshot testing with TestRenderer:** Capture UI snapshots to detect unexpected changes.
 
 
 ## App Screenshots
